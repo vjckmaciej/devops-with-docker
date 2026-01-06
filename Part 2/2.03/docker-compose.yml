@@ -17,4 +17,10 @@ services:
       ports:
         - "8080:8080"
       container_name: backend
+      environment:
+        - REDIS_HOST=redis
+        - REQUEST_ORIGIN=http://localhost:5000
+      restart: unless-stopped
 
+    redis:
+      image: redis
